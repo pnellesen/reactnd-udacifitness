@@ -53,7 +53,7 @@ export function isBetween (num, x, y) {
       width:50,
       height:50,
       justifyContent: 'center',
-      alignItem: 'center',
+      alignItems: 'center',
       marginRight:20
     }
  })
