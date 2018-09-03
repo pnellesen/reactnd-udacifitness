@@ -10,6 +10,9 @@ import UdaciSteppers  from './UdaciSteppers'
 import DateHeader from './DateHeader'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import TextButton from './TextButton'
+import { NavigationActions } from 'react-navigation'
+
+
 function SubmitButton ({ onPress }) {
     return (
         <TouchableOpacity
@@ -74,6 +77,9 @@ class AddEntry extends Component {
             eat: 0,
             sleep: 0
         }))
+
+        this.toHome()
+
         submitEntry({key, entry});
     }
 
@@ -91,7 +97,16 @@ class AddEntry extends Component {
             [key]: getDailyReminderValue()
         }))
 
+        this.toHome()
+
         removeEntry(key)
+
+    }
+
+    toHome = () => {
+        this.props.navigation.dispatch(NavigationActions.back({
+            key: 'AddEntry'
+        }))
     }
 
     render() {
