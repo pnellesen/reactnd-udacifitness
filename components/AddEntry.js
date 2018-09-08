@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, Platform, StyleSheet } from 'react-native'
-import { getMetricMetaInfo, timeToString,  getDailyReminderValue } from '../utils/helpers'
+import { getMetricMetaInfo, timeToString,  getDailyReminderValue, clearLocalNotification, setLocalNotification } from '../utils/helpers'
 import { submitEntry, removeEntry } from '../utils/api'
 import { white, purple, blue, red } from '../utils/colors'
 import { connect } from 'react-redux'
@@ -79,6 +79,12 @@ class AddEntry extends Component {
         }))
 
         this.toHome()
+
+
+        // clear and set new notification here?
+        clearLocalNotification().then(setLocalNotification)
+
+
 
         submitEntry({key, entry});
     }
